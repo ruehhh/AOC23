@@ -77,32 +77,11 @@ def disintegrate(brick_list, tower):
 
 
 
-# def disintegrate(multiple):
-#     if cache.get(tuple(multiple)) is not None:
-#         return cache[tuple(multiple)]
-#     else:
-#         fallers = [x for x in bricks if all([y in multiple for y in supporter[x]])]
-#         # print(len(fallers))
-#         if len(fallers) == 0:
-#             cache[tuple(multiple)] = 0
-#             return 0
-#         else:
-#             cache[tuple(multiple)] = len(fallers) + disintegrate(fallers)
-#             return cache[tuple(multiple)]
-
-
-# print(disintegrate([1], bricks))
-
-
 chain_lengths = []
 
 for i in bricks:
     tower = bricks.copy()
     chain_lengths.append(disintegrate([i], tower)-1)
 
-print(chain_lengths, sum(chain_lengths), len([x for x in chain_lengths if x==0]))
 
-# print(f"Part 2: the sum of chain reactions is {sum(disintegrate([i], bricks) for i in bricks)}")
-
-
-# print(f"Part 2: the sum of chain reactions is {[disintegrate([i]) for i in bricks]}")
+print(f"Part 2: the sum of chain reactions is {sum(chain_lengths)}")
