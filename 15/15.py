@@ -1,9 +1,6 @@
 with open("input.txt", 'r') as file:
     sequence = [x.strip('\n') for x in file.read().split(',')]
 
-
-print(sequence)
-
 def my_hash(string):
     result = 0
     for x in string:
@@ -11,7 +8,7 @@ def my_hash(string):
     return result
 
 
-# print(sum([my_hash(x) for x in sequence]))
+print(f"Part 1: {sum([my_hash(x) for x in sequence])}")
 
 def label(string):
     return string.strip('-=1234567890')
@@ -43,4 +40,4 @@ for x in sequence:
 focusing_power = sum([(x+1)*sum([list(d[x].values())[i]*(i+1) for i in range(len(d[x]))]) for x in d])
 
 
-print(focusing_power)
+print(f"Part 2: {focusing_power}")

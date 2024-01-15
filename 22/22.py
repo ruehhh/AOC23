@@ -17,15 +17,11 @@ def sort_bricks(bricks):
 
 bricks = {i: fill_in(sort_bricks(lines)[i]) for i in range(len(lines))}
 
-print(len(bricks))
-
 occupied = {(x, y, 0): 1 for x in range(10) for y in range(10)}
 
 for brick in bricks:
     for block in bricks[brick]:
         occupied[block] = 1
-
-
 
 for brick in bricks:
     for block in bricks[brick]:
@@ -58,11 +54,10 @@ supporter[0] += ['f']
 
 count = 0
 for brick in bricks:
-    # print(f"Brick {brick} is supported by {find_supporters(brick)} and supports {find_supported(brick)}")
     count += all([len(supporter[x])>1 for x in supported[brick]])
 
 
-print(f"Part 1: {count} bricks can be safely disintegrated")
+print(f"Part 1: {count}")
 
 ### PART 2 
 
@@ -84,4 +79,4 @@ for i in bricks:
     chain_lengths.append(disintegrate([i], tower)-1)
 
 
-print(f"Part 2: the sum of chain reactions is {sum(chain_lengths)}")
+print(f"Part 2: {sum(chain_lengths)}")

@@ -27,4 +27,4 @@ S = set(nodes)
 count = lambda v: len(connections[v] - S)
 while sum(map(count, S)) != 3:
     S.remove(max(S, key=count))
-print(len(S) * len(set(nodes)-S))
+print(f"Part 1: {len(S) * len(set(nodes)-S)}")
