@@ -14,4 +14,22 @@ while node != 'ZZZ':
     node = nodes_paths[node][directions[counter % len(directions)]]
     counter += 1
 
-print(counter)
+print(f"Part 1: {counter}")
+
+
+## Part 2
+
+import math
+
+all_nodes = [i for i in nodes_paths]
+nodes = [i for i in nodes_paths if i[2] == 'A']
+
+def distance_to_Z(node):
+    counter = 0
+    current_node = node
+    while current_node[2] != 'Z':
+        current_node = nodes_paths[current_node][directions[counter % len(directions)]]
+        counter += 1
+    return counter
+
+print(f"Part 2: {math.lcm(*[distance_to_Z(node) for node in nodes])}")

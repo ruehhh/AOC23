@@ -1,6 +1,6 @@
 list_of_indices = []
 list_of_powers = []
-with open("2\input.txt",'r') as input:
+with open("input.txt",'r') as input:
     games = [line.strip('\n')[line.find(':')+2:] for line in input.readlines()]
     for game in games:
         min_number_of_cubes = {"red":0,"blue":0,"green":0}
@@ -15,5 +15,5 @@ with open("2\input.txt",'r') as input:
         list_of_powers.append(min_number_of_cubes['red']*min_number_of_cubes['blue']*min_number_of_cubes['green'])
         if min_number_of_cubes['red'] <= 12 and min_number_of_cubes['green'] <= 13 and min_number_of_cubes['blue'] <= 14:
             list_of_indices.append(games.index(game)+1)
-print(sum(list_of_indices))
-print(sum(list_of_powers))
+print(f"Part 1: {sum(list_of_indices)}")
+print(f"Part 2: {sum(list_of_powers)}")

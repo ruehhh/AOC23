@@ -16,4 +16,20 @@ def extend(seq):
         d[D-2-i] += [d[D-2-i][-1] + d[D-1-i][-1]]
     return d[0]
 
-print(sum([extend(line)[-1] for line in lines]))
+print(f"Part 1: {sum([extend(line)[-1] for line in lines])}")
+
+## Part 2
+
+def extend(seq):
+    d = [seq]
+    power = 0
+    while all([i == 0 for i in d[-1]]) is False:
+        d += [[d[-1][i+1]-d[-1][i] for i in range(len(d[-1])-1)]]
+        power += 1
+    D = len(d)
+    d[D-1] += [0]
+    for i in range(D-1):
+        d[D-2-i] = [d[D-2-i][0] - d[D-1-i][0]] + d[D-2-i]
+    return d[0]
+
+print(f"Part 2: {sum([extend(line)[0] for line in lines])}")
